@@ -16,6 +16,7 @@ AI Water Tracker is a hydration tracking application that leverages AI to provid
 ---
 
 ## Project Structure 📂
+```
 ├── .env # Environment variables 
 ├── app.log # Log file 
 ├── dashboard.py # Streamlit-based UI 
@@ -27,7 +28,7 @@ AI Water Tracker is a hydration tracking application that leverages AI to provid
 │ ├── database.py # Database operations 
 │ ├── logger.py # Logging utility 
 │ └── pycache/ # Compiled Python files
-
+```
 ---
 
 ## Installation 🛠️
