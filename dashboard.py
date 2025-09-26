@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from src.agent import WaterIntakeAgent
-from src.database import create_tables, log_intake, get_intake_history
+from src.database import create_tables, log_intake, get_intake_history, get_today_total_intake
 
 # Initialize database
 create_tables()
@@ -43,8 +43,9 @@ else:
             log_intake(user_id, intake_ml)
             st.success(f"✅ Logged {intake_ml}ml for {user_id}")
 
+            total_today = get_today_total_intake(user_id)
             agent = WaterIntakeAgent()
-            feedback = agent.analyze_intake(intake_ml)
+            feedback = agent.analyze_intake(intake_ml, total_today)
             st.info(f"🤖 AI Feedback: {feedback}")
 
     # Divider

@@ -41,3 +41,17 @@ def get_intake_history(user_id):
     conn.close()
     return records
 
+# Fetch today's total water intake for a user
+def get_today_total_intake(user_id):
+    """ Get total water intake for the user for today. """
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
+    today = datetime.today().strftime('%Y-%m-%d')
+    cursor.execute(
+        "SELECT SUM(intake_ml) FROM water_intake WHERE user_id = ? AND date LIKE ?",
+        (user_id, f"{today}%")
+    )
+    result = cursor.fetchone()
+    conn.close()
+    return result[0] if result[0] else 0
+

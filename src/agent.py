@@ -11,7 +11,7 @@ class WaterIntakeAgent:
     def __init__(self):
         self.history = []
     
-    def analyze_intake(self, intake_ml):
+    def analyze_intake(self, recent_intake_ml, total_intake_ml):
         url = "https://api.euron.one/api/v1/euri/chat/completions"
         headers = {
             "Content-Type": "application/json",
@@ -22,7 +22,7 @@ class WaterIntakeAgent:
             "messages": [
                 {
                     "role": "user",
-                    "content": f"You are a hydration assistant. The user has consumed {intake_ml} ml of water today. Provide a hydration status and suggest if they need to drink more water."
+                    "content": f"You are a hydration assistant. The user has consumed recently i.e now {recent_intake_ml} and today total consumed is {total_intake_ml} ml of water today. Provide a hydration status and suggest if they need to drink more water."
                 }
             ],
             "model": "gpt-4.1-nano",

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from src.agent import WaterIntakeAgent
-from src.database import log_intake, get_intake_history
+from src.database import log_intake, get_intake_history, get_today_total_intake
 from src.logger import log_message
 
 # Initialize FastAPI app and Agent
@@ -18,7 +18,8 @@ class WaterIntakeRequest(BaseModel):
 async def log_water_intake(request: WaterIntakeRequest):
     """ Log user's water intake and get hydration analysis. """
     log_intake(request.user_id, request.intake_ml)
-    analysis = agent.analyze_intake(request.intake_ml)
+    total_intake = get_today_total_intake(request.user_id)
+    analysis = agent.analyze_intake(total_intake)
     log_message(f"User {request.user_id} logged {request.intake_ml} ml")
     return {"message": "Water intake logged successfully", "analysis": analysis}
 
