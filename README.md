@@ -1,7 +1,7 @@
 # AI Water Tracker 💧
 
 AI Water Tracker is a hydration tracking application that leverages AI to provide personalized feedback on your daily water intake. It includes a Streamlit-based dashboard for user interaction and a FastAPI backend for API-based operations.
-
+![PREVIEW:](demo.png)
 ---
 
 ## Features 🚀
@@ -16,8 +16,17 @@ AI Water Tracker is a hydration tracking application that leverages AI to provid
 ---
 
 ## Project Structure 📂
-. ├── .env # Environment variables ├── app.log # Log file ├── dashboard.py # Streamlit-based UI ├── requirements.txt # Python dependencies ├── water_tracker.db # SQLite database ├── src/ │ ├── agent.py # AI agent for hydration analysis │ ├── api.py # FastAPI backend │ ├── database.py # Database operations │ ├── logger.py # Logging utility │ └── pycache/ # Compiled Python files
-
+├── .env # Environment variables 
+├── app.log # Log file 
+├── dashboard.py # Streamlit-based UI 
+├── requirements.txt # Python dependencies 
+├── water_tracker.db # SQLite database 
+├── src/ 
+│ ├── agent.py # AI agent for hydration analysis 
+│ ├── api.py # FastAPI backend 
+│ ├── database.py # Database operations 
+│ ├── logger.py # Logging utility 
+│ └── pycache/ # Compiled Python files
 
 ---
 
@@ -30,7 +39,8 @@ AI Water Tracker is a hydration tracking application that leverages AI to provid
 
 2. **Set Up Environment Variables**: Create a .env file in the root directory with the following content:
     ```bash
-    </vscode_annotation> EURI_API_KEY="your-euri-api-key" DATABASE_URL=sqlite:///water_tracker.db
+    EURI_API_KEY="your-euri-api-key" 
+    DATABASE_URL=sqlite:///water_tracker.db
 
 
 3. **Install Dependencies**:
